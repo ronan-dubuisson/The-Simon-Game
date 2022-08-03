@@ -50,6 +50,15 @@ $("div.btn").click(function(e) {
   }
 });
 
+$("#start-button").click(function(e){
+  if (!gamestarted) {
+    gamestarted = true;
+    $(".sequence").remove();
+    changeGameTitle("Level " + level);
+    newGameSequence();
+  }
+})
+
 //game function
 function newGameSequence() {
   playerSequence = [];
