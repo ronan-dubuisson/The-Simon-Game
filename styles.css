@@ -58,7 +58,7 @@ h1{
 
 .btn{
   width: 200px;
-  height: 200px;
+  aspect-ratio: 1/1;
   border: 10px solid black;
   display: inline-block;
   border-radius: 20%;
@@ -85,4 +85,17 @@ background-color: grey;
 
 .wrong{
   background-color: red;
+}
+
+@media (max-width: 1127px){
+  .container{
+    width: 90%;
+  }
+  .btn{
+    width: 20%;
+    border: 10px solid black;
+    display: inline-block;
+    border-radius: 20%;
+    margin: 10px;
+  }
 }
