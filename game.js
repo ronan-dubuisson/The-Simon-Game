@@ -13,27 +13,9 @@ var audioBlue = new Audio("sounds/blue.mp3");
 var audioGreen = new Audio("sounds/green.mp3");
 var audioYellow = new Audio("sounds/yellow.mp3");
 var audioWrong = new Audio("sounds/wrong.mp3");
-/* Keep track of scores during session */
-var sessionScores = [];
 
-/* Constructor functions */
-function Score(name, score){
-  this.name = name;
-  this.score = score
-}
-
-//event listeners keypress
-$(document).keypress(function(e) {
-  if (!gamestarted) {
-    gamestarted = true;
-    $(".sequence").remove();
-    changeGameTitle("Level " + level);
-    newGameSequence();
-  }
-});
-
-//eventlistener button click
-$("div.btn").click(function(e) {
+//eventlistenerz
+$("div.color").click(function(e) {
   if (playerTurn) {
     var button = $(this);
     button.addClass("pressed");
@@ -45,21 +27,39 @@ $("div.btn").click(function(e) {
     playerSequence.push(color);
     checkPlayerEntry();
     playSound(color);
-  } else {
-    alert("It is not your turn");
   }
 });
 
 $("#start-button").click(function(e){
   if (!gamestarted) {
-    gamestarted = true;
-    $(".sequence").remove();
-    changeGameTitle("Level " + level);
-    newGameSequence();
+    start();
   }
-})
+});
+
+$("#how-to-play-btn").click(function(e){
+  var attr = $(this).attr("target-el");
+  $("#" + attr).toggleClass("hidden");
+});
+
+$("span.close-btn").click(function(e){
+    var targetEl = $(this).attr("target-el");
+    $("#" + targetEl).toggleClass("hidden");
+});
+
+$("#game-over").click(function(e){
+  $(this).toggleClass("hidden");
+  $(".sequence").remove();
+  changeGameTitle("Click 'Start' to start.");
+});
 
 //game function
+function start(){
+  gamestarted = true;
+  $("#start-button").addClass("hidden");
+  changeGameTitle("Level " + level);
+  newGameSequence();
+}
+
 function newGameSequence() {
   playerSequence = [];
   var randomNumber = Math.floor(Math.random() * 4)
@@ -106,24 +106,23 @@ function checkPlayerEntry() {
       newGameSequence();
     }
   } else {
-    playSound("wrong");
-    changeGameTitle("Game Over, Press Any Key to Restart");
     gameOver();
   }
 }
 
 function changeGameTitle(title) {
-  $("#level-title").text(title);
+  $("#level-title").html(title);
 }
 
 function gameOver() {
   var body = $("body");
   body.addClass("wrong");
+  playSound("wrong");
+  $("#game-over").toggleClass("hidden");
   setTimeout(function() {
     body.removeClass("wrong");
   }, 200);
   showEndSequence();
-  sessionScores.push(new Score("Ronangus",level));
 
   resetGame();
 }
@@ -135,6 +134,7 @@ function resetGame(){
   gamestarted = false;
   playerTurn = false;
   sequenceIndicators = [];
+  $("#start-button").removeClass("hidden");
 }
 
 function playSound(color) {

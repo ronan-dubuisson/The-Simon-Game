@@ -14,22 +14,47 @@
 </head>
 
 <body>
-  <div type="button" id="start-button" class="how-to-button">How to Play?</div>
-  <h1 id = "level-title">Press Any Key To Start</h1>
-  <div id = "current-sequence" class="container">
-  </div>
-  <div id = "end-sequence" class="container">
+  <div class="header">
+    <h1 id="level-title">Click 'Start' to start.</h1>
+    <div id="current-sequence" class="container">
+    </div>
+    <div id="end-sequence" class="container">
+    </div>
   </div>
 
   <div class="container">
-      <div class="row">
-        <div type="button" id="green" class="btn green"></div>
-        <div type="button" id="red" class="btn red"></div>
-      </div>
-      <div class="row">
-        <div type="button" id="yellow" class="btn yellow"></div>
-        <div type="button" id="blue" class="btn blue"></div>
-      </div>
+    <div id="start-button" class="center-of-parent">START</div>
+    <div class="row">
+      <div id="green" class="color green"></div>
+      <div id="red" class="color red"></div>
+    </div>
+    <div class="row">
+      <div id="yellow" class="color yellow"></div>
+      <div id="blue" class="color blue"></div>
+    </div>
+  </div>
+
+  <div id="how-to-play-btn" target-el="how-to-play">How to Play?</div>
+
+  <div id="how-to-play" class="v100 hidden">
+    <div class="inner-fs center-of-parent">
+      <span class="close-btn" target-el="how-to-play">X</span>
+      <p>
+        The Simon Game is a short term memory game. The more you advance in levels the more dificult it gets.
+        During each turn, the game will highlight one of the 4 colored buttons which the player needs to tap in order to advance to the next level.
+        Each time you advance level a new random colored button will be highlited, but here's the trick, all highlighted buttons from previous
+        turns must be remembered in the correct sequence, as during eacht turn you need to repeat the whole pattern again from turn one until the last
+        highted button. If The player fails to remember that sequence the game ends and you will need to start over.
+      </p>
+    </div>
+  </div>
+
+  <div id="game-over" class="v100 hidden">
+    <div class="inner-fs center-of-parent">
+      <p class="game-over">
+        GAME OVER
+      <p>
+    </div>
   </div>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
