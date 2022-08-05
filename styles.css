@@ -8,7 +8,7 @@ body {
 
 /* Game Title */
 h1 {
-  font-size: 3rem;
+  font-size: 2.5rem;
   margin-top: 0;
   padding: 0 5%;
 }
@@ -23,7 +23,6 @@ h1 {
   border: 4px solid black;
   display: inline-block;
   padding: 15px;
-  font-size: 1rem;
   position: fixed;
   bottom: 5%;
   right: 5%;
@@ -46,7 +45,6 @@ h1 {
   border: 4px solid black;
   background-color: grey;
   padding: 40px 20px 20px;
-  position: relative;
   text-align: left;
 }
 
@@ -163,26 +161,55 @@ h1 {
     font-size: 2rem;
   }
 
+  .header{
+    padding: 0;
+    height: 140px;
+  }
+
   .container {
     width: 90%;
   }
 
+  #start-button, #how-to-play-btn{
+    font-size: 1.5rem;
+  }
+
   .color {
-    width: 27%;
+    width: 40%;
     border: 10px solid black;
     display: inline-block;
     border-radius: 20%;
   }
 
-  #how-to-play {
-    font-size: 0.8rem;
+  #how-to-play-btn{
+    position: absolute;
+    padding: 20px;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
   }
 
-  .game-board{
+  .how-to-play-btn-mobile{
+    height: 140px;
+    position: relative;
+  }
+
+  .mobile-wrapper{
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    width: 100%;
+    text-align: center;
+  }
+
+  #how-to-play p{
+    font-size: 1.3rem;
+  }
+
+  .game-over{
+    font-size: 4rem;
+    text-align:center;
   }
 }
 

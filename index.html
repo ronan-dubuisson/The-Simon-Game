@@ -14,30 +14,34 @@
 </head>
 
 <body>
-  <div class="header">
-    <h1 id="level-title">Click 'Start' to start.</h1>
-    <div id="current-sequence" class="container">
+  <div class="mobile-wrapper">
+
+    <div class="header">
+      <h1 id="level-title">Click 'Start' to start.</h1>
+      <div id="current-sequence" class="container">
+      </div>
+      <div id="end-sequence" class="container">
+      </div>
     </div>
-    <div id="end-sequence" class="container">
+
+    <div class="container game-board">
+      <div id="start-button" class="center-of-parent">START</div>
+      <div class="row">
+        <div id="green" class="color green"></div>
+        <div id="red" class="color red"></div>
+      </div>
+      <div class="row">
+        <div id="yellow" class="color yellow"></div>
+        <div id="blue" class="color blue"></div>
+      </div>
+    </div>
+    <div class="how-to-play-btn-mobile">
+      <div id="how-to-play-btn" target-el="how-to-play">How to Play?</div>
     </div>
   </div>
-
-  <div class="container game-board">
-    <div id="start-button" class="center-of-parent">START</div>
-    <div class="row">
-      <div id="green" class="color green"></div>
-      <div id="red" class="color red"></div>
-    </div>
-    <div class="row">
-      <div id="yellow" class="color yellow"></div>
-      <div id="blue" class="color blue"></div>
-    </div>
-  </div>
-
-  <div id="how-to-play-btn" target-el="how-to-play">How to Play?</div>
 
   <div id="how-to-play" class="v100 hidden">
-    <div class="inner-fs center-of-parent">
+    <div class="inner-fs center-of-parent container">
       <span class="close-btn" target-el="how-to-play">X</span>
       <p>
         The Simon Game is a short term memory game. The more you advance in levels the more dificult it gets.
@@ -50,10 +54,8 @@
   </div>
 
   <div id="game-over" class="v100 hidden">
-    <div class="inner-fs center-of-parent">
-      <p class="game-over">
-        GAME OVER
-      <p>
+    <div class="center-of-parent container">
+      <span class="inner-fs game-over">GAME OVER</span>
     </div>
   </div>
 
